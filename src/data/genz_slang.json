@@ -3,85 +3,181 @@
     "id": 1,
     "term": "W",
     "definition": "Shorthand for win",
+    "definition_cn": "胜利 / 赢麻了",
     "example": "Got the job today, big W!",
-    "category": "Daily Life"
+    "example_cn": "今天找到工作了，赢麻了！",
+    "category": "Daily Life",
+    "deep_dive": {
+      "image_keyword": "victory trophy gold minimalistic 3d render",
+      "origin": "Originated from gaming culture (League of Legends, Fortnite) where 'W' stands for 'Win'.",
+      "explanation": "Simply put, 'W' is the ultimate flex. It's not just about winning a game; it's about winning at life. Getting a raise? That's a W. Finding $20 in your pocket? W.",
+      "explanation_cn": "W 是 Win 的缩写，最初源于电竞圈。现在已经泛化到生活中的任何小确幸或大胜利。不仅仅是赢了比赛，捡到钱、升职加薪、甚至只是今天没迟到，都可以说是一个 'W'。"
+    }
   },
   {
     "id": 2,
     "term": "L",
     "definition": "Shorthand for loss/losing",
+    "definition_cn": "失败 / 输了 / 亏大了",
     "example": "I forgot my wallet at home, that’s an L.",
-    "category": "Daily Life"
+    "example_cn": "把钱包忘在家里了，这波血亏。",
+    "category": "Daily Life",
+    "deep_dive": {
+      "image_keyword": "sad crying cat meme style low poly",
+      "origin": "Like 'W', 'L' comes from sports and gaming stats (Wins/Losses).",
+      "explanation": "An 'L' is a loss, a failure, or just a bad situation. You don't just 'lose', you 'take an L'. It implies a sense of acceptance of the misfortune.",
+      "explanation_cn": "L 是 Loss 的缩写。常用于自嘲或嘲讽。你不仅仅是'输了'，你是'领了一份 L' (Take an L)。"
+    }
   },
   {
     "id": 3,
     "term": "L+ratio",
     "definition": "Response to a comment or action on the internet that is particularly bad.",
+    "definition_cn": "用来嘲讽某人的言论非常糟糕，不仅输了(L)，而且回复数远超点赞数(Ratio)。",
     "example": "Your tweet got 5 likes and 100 replies calling you out. L + ratio.",
-    "category": "Social Media"
+    "example_cn": "你的推文只有5个赞，却有100条骂你的评论。简直是 L + Ratio。",
+    "category": "Social Media",
+    "deep_dive": {
+      "image_keyword": "math equations floating in space confusion meme style",
+      "origin": "Twitter culture. When a reply gets more likes than the original tweet, it's 'ratioed'.",
+      "explanation": "The ultimate double insult. You take the 'L' (Loss) because your opinion is bad, and you get 'ratioed' because everyone agrees it's bad.",
+      "explanation_cn": "这是推特圈的终极双重侮辱。'L' 代表你输了，观点站不住脚；'Ratio' 代表你的推文评论数比点赞数还多（通常意味着大家都在骂你）。"
+    }
   },
   {
     "id": 4,
     "term": "Dank",
-    "definition": "excellent or of very high quality",
+    "definition": "Excellent or of very high quality (usually referring to memes).",
+    "definition_cn": "极好的，顶级的（通常形容梗图）。",
     "example": "That meme is so dank!",
-    "category": "Social Media"
+    "example_cn": "那个表情包太绝了！",
+    "category": "Social Media",
+    "deep_dive": {
+      "image_keyword": "cool frog wearing sunglasses psychedelic colors",
+      "origin": "Originally described high-quality marijuana, now mostly used for top-tier internet humor.",
+      "explanation": "If a meme is 'dank', it's fresh, funny, and maybe a little weird in a good way.",
+      "explanation_cn": "最初用来形容高品质的大麻，现在专门用来形容那些非常搞笑、独特、高质量的互联网梗图 (Memes)。"
+    }
   },
   {
     "id": 5,
     "term": "Cheugy",
-    "definition": "Derogatory term for Millennials. Used when millennials are perceived to be excessively attempting to be trendy or stylish.",
-    "example": "That phrase is so cheugy, no one says that anymore.",
-    "category": "Social Media"
+    "definition": "Derogatory term for Millennials who are trying too hard to be trendy.",
+    "definition_cn": "土味、过时（专门形容那些努力想赶时髦但用力过猛的千禧一代）。",
+    "example": "That 'Live Laugh Love' sign is so cheugy.",
+    "example_cn": "那个 'Live Laugh Love' 的装饰牌简直土爆了。",
+    "category": "Social Media",
+    "deep_dive": {
+      "image_keyword": "live laugh love sign rustic home decor",
+      "origin": "Coined by a TikTok user in 2021 to roast outdated millennial trends.",
+      "explanation": "Skinny jeans? Side parts? Using the 😂 emoji? All cheugy according to Gen Z.",
+      "explanation_cn": "这是 Z 世代专门发明来嘲笑千禧一代（80/90后）审美过时的词。比如穿紧身牛仔裤、留偏分发型、或者家里挂着 'Live Laugh Love' 的牌子，都被认为是 Cheugy。"
+    }
   },
   {
     "id": 6,
     "term": "TFW",
-    "definition": "That feeling when",
-    "example": "TFW you finish a big project and can finally relax",
-    "category": "Daily Life"
+    "definition": "That feeling when...",
+    "definition_cn": "当...时的那种感觉（懂的都懂）。",
+    "example": "TFW you finish a big project and can finally relax.",
+    "example_cn": "当你可以终于搞定大项目可以躺平时的那种感觉。",
+    "category": "Daily Life",
+    "deep_dive": {
+      "image_keyword": "relaxed person floating in clouds dreamy atmosphere",
+      "origin": "Early internet forums and meme captions.",
+      "explanation": "A universal way to introduce a relatable scenario or emotion.",
+      "explanation_cn": "全称 That Feeling When。一种网络通用的句式，用来描述一种大家都能感同身受的情境或心情，通常配上一张非常传神的表情包。"
+    }
   },
   {
     "id": 7,
     "term": "Woke",
-    "definition": "being politically aware",
+    "definition": "Being politically aware, especially regarding social justice.",
+    "definition_cn": "觉醒的（指对社会不公、种族问题等政治议题保持清醒和敏感）。",
     "example": "He’s really woke about climate change.",
-    "category": "Daily Life"
+    "example_cn": "他对气候变化问题非常有觉悟。",
+    "category": "Daily Life",
+    "deep_dive": {
+      "image_keyword": "open eye third eye mystical cosmic background",
+      "origin": "African American Vernacular English (AAVE), popularized by BLM movement.",
+      "explanation": "Originally meant 'stay alert to injustice'. Now sometimes used ironically by critics.",
+      "explanation_cn": "最初源于黑人英语，意为'时刻警惕种族歧视和不公'。后来泛指对所有社会正义议题（如女权、环保）的关注。现在有时也被保守派用作贬义词，嘲讽'过度政治正确'。"
+    }
   },
   {
     "id": 8,
     "term": "Bop",
     "definition": "An excellent song or album.",
+    "definition_cn": "神曲，好听的歌。",
     "example": "This new track is a total bop!",
-    "category": "Daily Life"
+    "example_cn": "这首新歌简直是神曲！",
+    "category": "Daily Life",
+    "deep_dive": {
+      "image_keyword": "colorful musical notes dancing headphones neon style",
+      "origin": "Hip-hop slang from the 20th century, revived by Stan Twitter.",
+      "explanation": "A song that makes you want to move. It's not just good; it's a banger.",
+      "explanation_cn": "形容一首歌非常好听，旋律抓耳，让你忍不住想跟着抖腿。Bop = Banger。"
+    }
   },
   {
     "id": 9,
     "term": "G.O.A.T",
-    "definition": "The greatest of all time",
+    "definition": "The Greatest of All Time.",
+    "definition_cn": "历史最佳（永远的神）。",
     "example": "Michael Jordan is the GOAT of basketball.",
-    "category": "Daily Life"
+    "example_cn": "乔丹是篮球界的历史最佳（YYDS）。",
+    "category": "Daily Life",
+    "deep_dive": {
+      "image_keyword": "goat wearing a crown golden trophy background",
+      "origin": "Sports culture (Muhammad Ali, LL Cool J).",
+      "explanation": "Acronym for Greatest Of All Time. Used for athletes, musicians, or even pizza toppings.",
+      "explanation_cn": "Greatest Of All Time 的首字母缩写。虽然字面意思是'山羊'，但在赞美某人是领域内的'神'时，它是最高级的词汇。记得要大写！"
+    }
   },
   {
     "id": 10,
     "term": "Smol",
-    "definition": "Something that is small, and in most cases exceptionally adorable.",
-    "example": "Look at that smol puppy, it’s adorable!",
-    "category": "Daily Life"
+    "definition": "Something that is small, and exceptionally adorable.",
+    "definition_cn": "小小只（形容非常小且可爱的东西）。",
+    "example": "Look at that smol puppy!",
+    "example_cn": "看那只小狗狗，太可爱了！",
+    "category": "Daily Life",
+    "deep_dive": {
+      "image_keyword": "tiny cute kitten big eyes fluffy soft lighting",
+      "origin": "Internet slang spelling of 'small'.",
+      "explanation": "It emphasizes cuteness over actual size. A 6ft guy can be a 'smol bean' if he's shy.",
+      "explanation_cn": "Small 的网络萌化写法。它不仅仅是'小'，更强调'弱小、可怜、又无助'的那种可爱感。甚至可以用来形容一个很高大但性格软萌的男生。"
+    }
   },
   {
     "id": 11,
     "term": "Fam",
-    "definition": "Fam is a shorter word for family, but don't be fooled– it can be used to describe your friends or the way Millennials use \"bro\".",
-    "example": "What’s good, fam? Long time no see!",
-    "category": "Daily Life"
+    "definition": "Close friends or family.",
+    "definition_cn": "家人，兄弟，铁以此。",
+    "example": "What’s good, fam?",
+    "example_cn": "咋样啊，兄弟？",
+    "category": "Daily Life",
+    "deep_dive": {
+      "image_keyword": "group of diverse friends laughing sunset vibe",
+      "origin": "Short for 'family'.",
+      "explanation": "You don't need to be related. Your best friend is fam. Your squad is fam.",
+      "explanation_cn": "Family 的缩写。不需要有血缘关系，只要关系够铁，都可以叫 Fam。类似中文里的'老铁'、'家人们'。"
+    }
   },
   {
     "id": 12,
     "term": "Glow up",
-    "definition": "a makeover or transformation from bad to good.",
+    "definition": "A major transformation from bad to good.",
+    "definition_cn": "逆袭，大变身（通常指颜值或气质的飞跃）。",
     "example": "She really had a glow up since high school.",
-    "category": "Daily Life"
+    "example_cn": "高中毕业后她简直是整容式逆袭。",
+    "category": "Daily Life",
+    "deep_dive": {
+      "image_keyword": "butterfly emerging from cocoon magical sparkling light",
+      "origin": "Internet slang for puberty done right.",
+      "explanation": "Improving your appearance, confidence, or lifestyle significantly.",
+      "explanation_cn": "通常指经过青春期或者努力打扮后，颜值、气质发生了翻天覆地的变好。从丑小鸭变成白天鹅的过程就是 Glow up。"
+    }
   },
   {
     "id": 13,

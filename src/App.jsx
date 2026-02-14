@@ -1,94 +1,18 @@
 import React, { useState, useMemo, useEffect } from 'react';
-import { RefreshCw, BookOpen, ArrowLeft, Briefcase, Heart, Hash, Coffee, Layers, CheckCircle, Settings, Brain } from 'lucide-react';
+import { RefreshCw, BookOpen, ArrowLeft, CheckCircle, Settings, Brain } from 'lucide-react';
 import FlashCard from './components/FlashCard';
 import SettingsPage from './components/SettingsPage';
 import Onboarding from './components/Onboarding';
 import DailySlangCard from './components/DailySlangCard';
 import LevelMap from './components/LevelMap';
-// import { slangData } from './data/slangData'; // Old mock data
+import CategoryCard from './components/CategoryCard';
+import ErrorBoundary from './components/ErrorBoundary';
+import InstallPrompt from './components/InstallPrompt';
+import CardStack from './components/CardStack';
+import LevelCompleteModal from './components/LevelCompleteModal';
 import genzData from './data/genz_slang.json'; // New real data
 
 const slangData = genzData;
-
-class ErrorBoundary extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { hasError: false, error: null };
-  }
-
-  static getDerivedStateFromError(error) {
-    return { hasError: true, error };
-  }
-
-  componentDidCatch(error, errorInfo) {
-    console.error("ErrorBoundary caught an error", error, errorInfo);
-  }
-
-  render() {
-    if (this.state.hasError) {
-      return (
-        <div className="p-8 text-center">
-          <h1 className="text-2xl font-bold text-red-600 mb-4">Something went wrong.</h1>
-          <pre className="text-left bg-gray-100 p-4 rounded text-sm overflow-auto">
-            {this.state.error && this.state.error.toString()}
-          </pre>
-          <button 
-            onClick={() => window.location.reload()} 
-            className="mt-4 px-4 py-2 bg-slate-900 text-white rounded"
-          >
-            Reload Page
-          </button>
-        </div>
-      );
-    }
-
-    return this.props.children;
-  }
-}
-
-const CategoryCard = ({ category, onClick, count, masteredCount }) => {
-  const getIcon = (cat) => {
-    switch(cat) {
-      case 'Workplace': return <Briefcase className="w-8 h-8" />;
-      case 'Dating': return <Heart className="w-8 h-8" />;
-      case 'Social Media': return <Hash className="w-8 h-8" />;
-      case 'Daily Life': return <Coffee className="w-8 h-8" />;
-      default: return <Layers className="w-8 h-8" />;
-    }
-  };
-
-  const getColor = (cat) => {
-    switch(cat) {
-      case 'Workplace': return 'bg-blue-200 text-blue-900';
-      case 'Dating': return 'bg-pink-200 text-pink-900';
-      case 'Social Media': return 'bg-purple-200 text-purple-900';
-      case 'Daily Life': return 'bg-orange-200 text-orange-900';
-      default: return 'bg-gray-200 text-gray-900';
-    }
-  };
-
-  const getCategoryName = (cat) => {
-    switch(cat) {
-      case 'Social Media': return 'Social';
-      default: return cat;
-    }
-  };
-
-  return (
-    <button 
-      onClick={onClick}
-      className={`w-full aspect-square ${getColor(category)} rounded-3xl border-4 border-slate-900 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[3px] hover:translate-y-[3px] transition-all active:shadow-none active:translate-x-[6px] active:translate-y-[6px] flex flex-col items-center justify-center gap-4 p-4`}
-    >
-      <div className="bg-white/50 p-4 rounded-full border-2 border-slate-900">
-        {getIcon(category)}
-      </div>
-      <div className="text-center">
-        <h3 className="text-xl font-black uppercase tracking-wider">{getCategoryName(category)}</h3>
-        <p className="text-sm font-bold opacity-70">{masteredCount}/{count} Mastered</p>
-      </div>
-    </button>
-  );
-};
 
 function App() {
   const [showSettings, setShowSettings] = useState(false);
@@ -97,6 +21,8 @@ function App() {
   });
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [selectedLevel, setSelectedLevel] = useState(null); // New state for level
+  const [reviewDeck, setReviewDeck] = useState([]); // Fixed deck for review mode
+  const [showLevelComplete, setShowLevelComplete] = useState(false); // New state for modal
   const [currentIndex, setCurrentIndex] = useState(0);
   const [masteredIds, setMasteredIds] = useState(() => {
     try {
@@ -177,7 +103,7 @@ function App() {
   const currentDeck = useMemo(() => {
     if (!selectedCategory) return [];
     if (selectedCategory === 'review') {
-      return slangData.filter(s => !masteredIds.includes(s.id));
+      return reviewDeck;
     }
     
     // Filter by category first
@@ -217,25 +143,53 @@ function App() {
       alert("🎉 Incredible! You've mastered every single slang in the app!");
       return;
     }
+    // Shuffle the unmastered cards for better review experience
+    const shuffled = [...unmastered].sort(() => Math.random() - 0.5);
+    setReviewDeck(shuffled);
     setSelectedCategory('review');
     setCurrentIndex(0);
   };
 
   const handleBack = () => {
     setSelectedCategory(null);
+    setReviewDeck([]); // Clear review deck
     setCurrentIndex(0);
   };
 
   const handleNext = () => {
-    if (currentDeck.length > 1) {
-      // Prioritize unmastered cards logic can be added here
-      // For now, simple random
-      let nextIndex;
-      do {
-        nextIndex = Math.floor(Math.random() * currentDeck.length);
-      } while (nextIndex === currentIndex);
-      setCurrentIndex(nextIndex);
+    if (currentDeck.length > 0) {
+      // Simply move to the next card in the array
+      if (currentIndex < currentDeck.length - 1) {
+        setCurrentIndex(prev => prev + 1);
+      } else {
+        // End of deck behavior -> Show completion modal
+        setShowLevelComplete(true);
+      }
     }
+  };
+
+  const handleNextLevel = () => {
+    setShowLevelComplete(false);
+    // Move to next level
+    if (selectedLevel) {
+      setSelectedLevel(prev => prev + 1);
+      setCurrentIndex(0);
+    } else {
+      // If in review mode or generic, maybe just shuffle?
+      // For now, go back to map if not in levels
+      handleBack();
+    }
+  };
+
+  const handleModalBackToMap = () => {
+    setShowLevelComplete(false);
+    handleBack();
+  };
+
+  const handleReplayLevel = () => {
+    setShowLevelComplete(false);
+    setCurrentIndex(0);
+    // Optional: shuffle?
   };
 
   const getCategoryName = (cat) => {
@@ -368,16 +322,12 @@ function App() {
             </div>
 
             {currentSlang ? (
-              <FlashCard 
-                key={currentSlang.id} 
-                slang={currentSlang} 
-                isMastered={isMastered}
-                onToggleMastery={() => toggleMastery(currentSlang.id)}
-                onSwipeLeft={handleNext}
-                onSwipeRight={() => {
-                  if (!isMastered) toggleMastery(currentSlang.id);
-                  handleNext();
-                }}
+              <CardStack 
+                currentDeck={currentDeck}
+                currentIndex={currentIndex}
+                masteredIds={masteredIds}
+                onNext={handleNext}
+                onToggleMastery={toggleMastery}
               />
             ) : (
               <div className="text-center p-8 text-slate-500">
@@ -401,6 +351,20 @@ function App() {
       <footer className="mt-auto pt-12 text-slate-500 text-sm font-semibold relative z-10">
         <p>MVP Version 1.2 • Built with React</p>
       </footer>
+
+      {/* Install Prompt for iOS */}
+      <InstallPrompt />
+
+      {/* Level Complete Modal */}
+      <LevelCompleteModal 
+        show={showLevelComplete}
+        level={selectedLevel}
+        score={currentDeck.filter(s => masteredIds.includes(s.id)).length}
+        total={currentDeck.length}
+        onNextLevel={handleNextLevel}
+        onReplayLevel={handleReplayLevel}
+        onBackToMap={handleModalBackToMap}
+      />
     </div>
   );
 }
